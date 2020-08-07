@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<persistence>
+	<persistence-unit name="InhouseApps">
+		<jta-data-source>jdbc/inhouse_apps</jta-data-source>
+		<class>edu.ruhhosp.rws.icis.data.Appointment</class>
+	</persistence-unit>
+</persistence>

@@ -1,0 +1,18 @@
++ datatable where Ajax is used to refresh a portion of the datatable
++ paginator for datatables
+- re-run a jQuery-based function when f:ajax is used to re-render a portion of the page
+- illustrate the JSF lifecycle through a simple page request (1, 6)
+- illustrate the JSF lifecycle through a simple form request (1,2,3,4,5,6)
+- illustrate the JSF lifecycle through a simple Ajax request (1,2,3,4,5,6)
+
+
+- Adding a note simply to test pushing to new SCM server.
+- One more time: Adding a note simply to test pushing to new SCM server.
+
+- And another last time inshaa-Allaah.
+
+
+- change all javascript property names to lowercase
+- place project into SCM
+- figure out how to document REST services
+- place all database access within transactions

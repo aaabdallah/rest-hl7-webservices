@@ -1,0 +1,61 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core">
+
+<ui:composition template="/templates/mainTemplate/index.xhtml">
+	<ui:define name="content">
+	    <div id="pageBody">
+    	<h:form id="formId">
+		    <h3>Generate and Send SIU S12 HL7 Message</h3>
+			<h:panelGrid styleClass="panel" border="0" columns="2">
+				<h:outputLabel>Patient Medical Record: </h:outputLabel>
+				<h:inputText value="#{hl7DemoBean.patientMrn}"/>
+				<h:outputLabel>Given Name: </h:outputLabel>
+				<h:inputText value="#{hl7DemoBean.givenName}"/>
+				<h:outputLabel>Family Name: </h:outputLabel>
+				<h:inputText value="#{hl7DemoBean.familyName}"/>
+				<h:outputLabel>Middle Name: </h:outputLabel>
+				<h:inputText value="#{hl7DemoBean.middleInitialOrName}"/>
+				<h:outputLabel>Appointment Date:</h:outputLabel>
+				<h:inputText styleClass="datepicker" value="#{hl7DemoBean.appointmentStartTime}"></h:inputText>
+				<h:outputLabel>&nbsp;</h:outputLabel>
+				<h:panelGroup styleClass="rightAlignPanel">
+					<f:ajax execute="@form" render="@form">
+						<h:commandButton id="generateAndSendMessageButton" value="Generate and Send Message" action="#{hl7DemoBean.generateAndSendMessage}"/>
+					</f:ajax>
+				</h:panelGroup>
+			</h:panelGrid>
+			<h:panelGrid styleClass="responsePanel" rendered="#{!empty hl7DemoBean.responseToGeneratedMessage}" border="0" columns="1">
+				<h:outputLabel>Response:</h:outputLabel>
+				<h:outputLabel value="#{hl7DemoBean.responseToGeneratedMessage}"/>
+			</h:panelGrid>
+			<br/>
+		    <h3>Send Raw HL7 Message</h3>
+			<h:panelGrid styleClass="panel" border="0" columns="1">
+				<h:panelGroup styleClass="rightAlignPanel">
+					<h:outputLabel>Destination Host: </h:outputLabel>
+					<h:inputText value="#{hl7DemoBean.destinationHost}"/>
+					<h:outputLabel>Destination Port: </h:outputLabel>
+					<h:inputText value="#{hl7DemoBean.destinationPort}"/>
+				</h:panelGroup>
+	    		<h:inputTextarea id="HL7MessageTextArea" value="#{hl7DemoBean.rawMessageToSend}" cols="100" rows="10">
+	    		</h:inputTextarea>
+				<h:panelGroup styleClass="rightAlignPanel">
+					<f:ajax execute="@form" render="@form">
+						<h:commandButton id="sendRawMessageButton" value="Send Raw Message" action="#{hl7DemoBean.sendRawMessage}"/>
+					</f:ajax>
+				</h:panelGroup>
+	    	</h:panelGrid>
+			<h:panelGrid styleClass="responsePanel" rendered="#{!empty hl7DemoBean.responseToRawMessage}" border="0" columns="1">
+				<h:outputLabel>Response:</h:outputLabel>
+				<h:outputLabel value="#{hl7DemoBean.responseToRawMessage}"/>
+			</h:panelGrid>
+		</h:form>
+		</div>
+	</ui:define>
+</ui:composition>
+</html>

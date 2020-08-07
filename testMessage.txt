@@ -1,0 +1,11 @@
+MSH|^~\&|PORTAL|PORTAL|CLOVERLEAF|CLOVERLEAF|20141230094337||SIU^S12|20191230094337|P|2.3
+SCH||32160009||||Requested by clinic^Test again|707765^^^Family Medicine Follow-up||15|minute(s)|^^15^20150101103000^20150101104500
+PID|1||5119902||ScriptPro^Test^Eleven|||||||||||||||||||||||||Active
+PV1||O|638501^^F^^^^Outpatient||||||Attending Physician|||||||||O|195941940|
+RGS|1||638501
+AIL|1||638501^^F^^^^Outpatient|Appointment||20150101103000|15|minute(s)||||Scheduled
+AIP|1||699615|||20150101103000|0|minute(s)|15|minute(s)
+
+------------------------------------
+
+{"mrn":"12345", "status":"0", "reasonChoice" : "testData", "reasonSynCode" : "testdata", "reasonText" : "testdata", "durationMinutes" : "30", "startDateTime" : "2015-02-25T14:35:00", "patientLocation" : "testdata", "personnelResCode" : "testdata"}

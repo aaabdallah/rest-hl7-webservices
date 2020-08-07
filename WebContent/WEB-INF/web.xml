@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xmlns:web="http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd" id="WebApp_ID" version="3.0">
+  <display-name>ICISWebServices</display-name>
+  <context-param>
+    <param-name>javax.faces.DEFAULT_SUFFIX</param-name>
+    <param-value>.xhtml</param-value>
+  </context-param>
+  <context-param>
+    <param-name>javax.faces.FACELETS_SKIP_COMMENTS</param-name>
+    <param-value>true</param-value>
+  </context-param>
+  <context-param>
+    <param-name>javax.faces.PROJECT_STAGE</param-name>
+    <param-value>Development</param-value>
+  </context-param>
+  <context-param>
+    <param-name>javax.faces.FACELETS_BUFFER_SIZE</param-name>
+    <param-value>8192</param-value>
+  </context-param>
+  <welcome-file-list>
+    <welcome-file>index.jsf</welcome-file>
+  </welcome-file-list>
+  <listener>
+    <listener-class>com.sun.faces.config.ConfigureListener</listener-class>
+  </listener>
+  <servlet>
+    <servlet-name>HL7 Server Servlet</servlet-name>
+    <servlet-class>edu.ruhhosp.hl7server.HL7ServerServlet</servlet-class>
+    <init-param>
+      <param-name>sendingPort</param-name>
+      <param-value>15101</param-value>
+    </init-param>
+    <init-param>
+      <param-name>sendingUseTls</param-name>
+      <param-value>false</param-value>
+    </init-param>
+    <init-param>
+      <param-name>receivingPort</param-name>
+      <param-value>15102</param-value>
+    </init-param>
+    <init-param>
+      <param-name>receivingUseTls</param-name>
+      <param-value>false</param-value>
+    </init-param>
+    <load-on-startup>1</load-on-startup>
+  </servlet>
+  <servlet>
+    <servlet-name>Faces Servlet</servlet-name>
+    <servlet-class>javax.faces.webapp.FacesServlet</servlet-class>
+    <load-on-startup>1</load-on-startup>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>Faces Servlet</servlet-name>
+    <url-pattern>*.jsf</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>HL7 Server Servlet</servlet-name>
+    <url-pattern>/_donotinvoke_</url-pattern>
+  </servlet-mapping>
+  <error-page>
+    <exception-type>javax.faces.application.ViewExpiredException</exception-type>
+    <location>/errorHandlers/redirectHomeErrorHandler.jsf</location>
+  </error-page>
+  <login-config>
+    <auth-method>BASIC</auth-method>
+    <realm-name>ruhhospappsFileRealm</realm-name>
+  </login-config>
+  <security-role>
+    <description>All authenticated users</description>
+    <role-name>WPSSAM_PORTAL_AUTHENTICATED</role-name>
+  </security-role>
+  <security-constraint>
+    <display-name>securePages</display-name>
+    <web-resource-collection>
+      <web-resource-name>securePages</web-resource-name>
+      <url-pattern>/removethistoactivesecurity</url-pattern>
+      <http-method>DELETE</http-method>
+      <http-method>GET</http-method>
+      <http-method>POST</http-method>
+      <http-method>PUT</http-method>
+    </web-resource-collection>
+    <auth-constraint>
+      <role-name>WPSSAM_PORTAL_AUTHENTICATED</role-name>
+    </auth-constraint>
+  </security-constraint>
+</web-app>

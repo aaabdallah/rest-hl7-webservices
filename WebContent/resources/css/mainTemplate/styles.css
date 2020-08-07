@@ -1,0 +1,91 @@
+@CHARSET "UTF-8";
+
+html {
+	padding : 0;
+	margin : 0;
+}
+
+body {
+	background-color : white;
+	padding : 0;
+	margin : 0;
+	font-family : Verdana, Geneva, 'DejaVu Sans', sans-serif;
+}
+
+input {
+	font-family : Verdana, Geneva, 'DejaVu Sans', sans-serif;
+}
+
+#pageHeader * {
+	background-color : #001E2B;
+	color : #D9F5FF;
+	padding : 20px 15px 20px 15px;
+	margin : 0;
+	font-size : 14pt;
+}
+
+#pageBody {
+	padding : 10px 15px 20px 15px;
+}
+
+/*#pageFooter {
+	background-color : #202020;
+	position : absolute;
+	bottom : 0px;
+	color : #D9F5FF;
+	padding : 0;
+	margin : 0;
+	font-size : 7pt;
+	font-style : italic;
+	z-index : -1;
+	text-align : center;
+	width : 100%;
+}*/
+
+#pageFooter {
+	background-color : #202020;
+	color : #D9F5FF;
+	padding : 0;
+	margin : 0;
+	font-size : 7pt;
+	font-style : italic;
+	text-align : center;
+	width : 100%;
+}
+
+#pageFooter p {
+	margin : 0;
+	padding : 1em;
+}
+
+#pageBody p.errorLabel {
+	font-family : monospace;
+	font-size : 9pt;
+	font-weight: bold;
+	margin-bottom : 0px;
+}
+
+#pageBody p.errorContent {
+	font-family : monospace;
+	font-size : 9pt;
+	margin-top : 0px;
+}
+
+#hl7messageTextArea {
+}
+.rightAlignPanel {
+	display : block;
+	text-align : right;
+}
+
+#sendRawMessageButton {
+	text-align : right;
+}
+
+#generateAndSendMessageButton {
+	text-align : right;
+}
+
+.responsePanel {
+	color : red;
+}

@@ -1,0 +1,61 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+          "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+<h:head>
+	<title><ui:insert name="title">ICIS Web Services</ui:insert></title>
+	<h:outputStylesheet library="css/mainTemplate" name="styles.css"></h:outputStylesheet>
+	<script src="http://code.jquery.com/jquery-2.1.3.min.js"></script>
+	<script src="http://code.jquery.com/ui/1.11.2/jquery-ui.js"></script>
+	<link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/themes/black-tie/jquery-ui.css"></link>
+	<script>
+	$(function() {
+		$( ".datepicker" ).datepicker();
+	});
+	</script>
+</h:head>
+
+<h:body>
+
+<div id="header">
+    <ui:insert name="header">
+		<div id="pageHeader"><p>ICIS Web Services</p></div>
+    	<!--  include your header file or uncomment the include below and create header.xhtml in this directory -->
+    	<!-- <ui:include src="header.xhtml"/> -->
+    </ui:insert>
+</div>
+
+
+<div id="content">
+  <ui:insert name="content">
+    	Content area.  See comments below this line in the source.
+    	<!--  include your content file or uncomment the include below and create content.xhtml in this directory -->
+	  	<!-- <div> -->
+    	<!-- <ui:include src="content.xhtml"/> -->  
+    	<!-- </div> -->
+  </ui:insert>
+</div>
+
+<div id="footer">
+  <ui:insert name="footer">
+    	<div id="pageFooter"><p>For questions or suggestions, please contact Ahmed Abd-el-Shafy (n72678@ruhhosp.edu.sa).</p></div>
+    	<!--  include your header file or uncomment the include below and create footer.xhtml in this directory -->
+		<!--<ui:include src="footer.xhtml"/>  -->
+		<!-- <h:outputScript library="js" name="ajaxErrorHandler.js"></h:outputScript> -->
+		<script type="text/javascript">
+		if (typeof jsf != "undefined")
+			jsf.ajax.addOnError(function(data) 
+			{
+				if (data.errorName.indexOf("ViewExpiredException") >= 0)
+				{
+					window.location = "/#{facesContext.externalContext.contextName}/index.jsf";
+				}
+			})
+		</script>
+  </ui:insert>
+</div>
+
+</h:body>
+
+</html>

@@ -1,0 +1,14 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html">
+
+<h:body> 
+<!-- If this is changed to h:form, an odd (?) error will occur:
+java.lang.IllegalStateException: PWC3999: Cannot create a session after the response has been committed
+-->
+	<h:inputHidden value="#{redirectorBean.doRedirect('/index.jsf')}"/>
+</h:body>
+
+</html>
